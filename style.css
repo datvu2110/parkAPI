@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+#submit-states{
+	text-align: center;
+}
+.h1{
+	text-align: center;
+}
+input{
+	text-align: center;
+}
+
+.btn{
+	padding: 5px;
+	border-radius: 5px;
+}
+.btn:hover{
+	cursor: pointer;
+}
+
+.container{
+	width: 70%;
+	margin: 0 auto;
+	list-style: none;
+}
+.title{
+	text-align: center;
+}
+.list{
+	list-style-type: none;
+}
+
+.enter-states{
+	margin-bottom: 10px;
+}
+.enter-results{
+	margin-bottom: 10px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Park</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 class="h1">Let's search for parks near you</h1>
+    <form id="submit-states">
+        <label for="states">Enter states with commas </label>
+        <input type="text" name="states" class="enter-states" placeholder="TX, CA, FL, etc..." required><br>
+        <label for="results">Maximum number of results to return: </label>
+        <input type="number" name="results" class="enter-results" value="10" min="1" max="50" placeholder="1 - 50"><br>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+    <p class="error"></p>
+    <div class="container">
+        <ul class="list">
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
