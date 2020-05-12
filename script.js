@@ -1,12 +1,10 @@
-function queryArray(formatArr,maxRes){
-	let search ='';
-	for (let i =0; i<formatArr.length; i++){
-		search+= "stateCode=" +formatArr[i] + "&"
-	}
-	search+= "limit=" + maxRes;
-	return search;
+"use strict";
+function formatQueryParams(params) {
+    const queryItems = Object.keys(params).map(
+    	key => `${[encodeURIComponent(key)]}=${encodeURIComponent(params[key])}`
+    );
+    return queryItems.join('&');
 }
-
 
 function handleSubmit(){
 	$("#submit-states").on('submit', function(event) {
@@ -24,10 +22,15 @@ function getParks(){
 	formatArr = formatArr.map(function (el) {
   		return el.trim().toUpperCase();
 	});
+	const params = {
+		stateCode: stateArr,
+		limit:maxRes
+	};
+
 	const key = 'QdGRZjm3TDc4W4RZb8T7YGJEEe13792EtlXiDgWU';
-	const baseURI = 'https://api.nps.gov/api/v1/parks?';
-	const search  = queryArray(formatArr, maxRes);
-	let URL = baseURI + search+ "&api_key=" +'&fields=addresses'+ key;
+	const baseURI = 'https://api.nps.gov/api/v1/parks';
+	const queryString = formatQueryParams(params);
+	const URL = baseURI + "?" + queryString + '&api_key='+key;
 	console.log(URL);
 	fetch(URL)
         .then(response => {
